@@ -1,0 +1,17 @@
+{
+    "name": "zhangzhijian/yaf-swoole",
+    "authors": [
+        {
+            "name": "zhangzhijian",
+            "email": "zhangzhijian@doweidu.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "RPC\\": "RPC/",
+            "Thrift\\": "Thrift/"
+        }
+    }
+}
