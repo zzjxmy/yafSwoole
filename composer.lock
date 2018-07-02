@@ -1,0 +1,46 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9f26175c63f1bd685be2f69faf2fd436",
+    "packages": [
+        {
+            "name": "dwd/dwdrpc",
+            "version": "0.7",
+            "source": {
+                "type": "git",
+                "url": "https://zhangzhijian@gitlab.iqianggou.com/dwd/DWDRPC.git",
+                "reference": "b66f376dc4b91ccb2d0a68ec749b679711b5548b"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RPC\\": "RPC/",
+                    "Thrift\\": "Thrift/"
+                },
+                "files": [
+                    "gen-php/RPCThrift/RPCService.php",
+                    "gen-php/RPCThrift/Types.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "zhangzhijian",
+                    "email": "zhangzhijian@doweidu.com"
+                }
+            ],
+            "description": "多维度公共项目",
+            "time": "2018-07-02T11:09:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

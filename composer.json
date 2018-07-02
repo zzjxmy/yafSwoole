@@ -6,7 +6,14 @@
             "email": "zhangzhijian@doweidu.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://zhangzhijian@gitlab.iqianggou.com/dwd/DWDRPC.git"
+        }
+    ],
     "require": {
+        "dwd/dwdrpc": "~0.1"
     },
     "autoload": {
         "psr-4": {
