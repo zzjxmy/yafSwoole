@@ -19,6 +19,11 @@ class RpcSwooleServer extends TNonblockingServer
         echo $log."\n";
     }
 
+    public function onConnect($server, $fd, $reactorId)
+    {
+        echo $fd."\n";
+    }
+
     /**
      * @param $server
      * @param $fd
@@ -27,8 +32,9 @@ class RpcSwooleServer extends TNonblockingServer
      */
     public function onReceive($server, $fd, $fromId, $data)
     {
-        $handler = new RpcHandler();
-        $this->processor = new RPCServiceProcessor($handler);
+        var_dump(1);
+        $handler = new \RPC\RpcHandler();
+        $this->processor = new \RPCThrift\RPCServiceProcessor($handler);
 
         $socket = new Socket();
         $socket->setHandle($fd);
@@ -52,7 +58,14 @@ class RpcSwooleServer extends TNonblockingServer
         $server = new \swoole_server($config['host'],$config['port']);
         $server->on('workerStart', [$this, 'onStart']);
         $server->on('receive', [$this, 'onReceive']);
-        $server->set((array)$config['config']);
+        $server->on('connect', [$this, 'onConnect']);
+        $swooleConfig = [];
+        array_walk($config['config'], function($key, $value) use(&$swooleConfig){
+            if($value == "\000*\000_config"){
+                $swooleConfig = $key;
+            }
+        });
+        $server->set($swooleConfig);
         $server->start();
     }
 }

@@ -38,6 +38,7 @@ class RpcHandler implements RPCServiceIf {
             ob_start();
             self::$_instance->bootstrap()->getDispatcher()->dispatch($request);
             $response = ob_get_contents();
+            ob_end_clean();
             return $response;
         }catch (\Exception $exception){
             return $exception->getMessage();

@@ -36,13 +36,13 @@ try{
     $socket = new TSocket('127.0.0.1', 1101);
     $transport = new TFramedTransport($socket);
     $protocol = new TBinaryProtocol($transport);
-    $client = new RPCServiceClient($protocol);
 
     $transport->open();
     $callIndexParams = new \RPCThrift\Params([
         'GET' => ['hello' => 'YES']
     ]);
     $callIndexTwoParams = new \RPCThrift\Params();
+    $client = new RPCServiceClient($protocol);
     var_dump($client->call('index','index',$callIndexParams));
     var_dump($client->call('index','indexTwo',$callIndexTwoParams));
 

@@ -4,6 +4,7 @@
     <include_path>
       <path value="$PROJECT_DIR$/../../../yaf-ide-helper" />
       <path value="$PROJECT_DIR$/../../../swoole-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
 </project>
