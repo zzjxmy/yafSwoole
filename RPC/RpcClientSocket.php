@@ -20,7 +20,7 @@ class RpcClientSocket
     private static $map = [];
     private static $_instance;
     public static $application;
-    private static $socketMap;
+    private static $socketMap = [];
 
     public static function getInstance()
     {
@@ -56,11 +56,13 @@ class RpcClientSocket
     }
 
     public function getConfigMap($url){
-        if(isset(self::$map[$url])){
-            return self::$map[$url];
+        if(!isset(self::$map[$url])){
+            self::$map[$url] = [
+                'host' => self::$application->getConfig()->get('rpc.server.host'),
+                'port' => self::$application->getConfig()->get('rpc.server.port'),
+            ];
         }
-
-        throw new Exception($url . ' server map is not exists');
+        return self::$map[$url];
     }
 
     private function getSocket($host, $port){

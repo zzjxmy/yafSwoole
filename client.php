@@ -15,7 +15,8 @@ use Thrift\Exception\TException;
 try{
     $RpcClient = \RPC\RpcClientSocket::getInstance()->getClient('http://www.open-api.com');
     $result = $RpcClient->setController('index')->setAction('index')->call();
-    var_dump($result);
+    $result2 = $RpcClient->setController('index')->setAction('indexTwo')->call();
+    var_dump($result,$result2);
 }catch (TException $TException){
-    var_dump('TException:'.$TException->getMessage().PHP_EOL);
+    echo json_encode(['code' => 0 , 'msg' => '服务器连接超时']) . PHP_EOL;
 }

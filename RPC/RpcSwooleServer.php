@@ -32,7 +32,6 @@ class RpcSwooleServer extends TNonblockingServer
      */
     public function onReceive($server, $fd, $fromId, $data)
     {
-        var_dump(1);
         $handler = new \RPC\RpcHandler();
         $this->processor = new \RPCThrift\RPCServiceProcessor($handler);
 
