@@ -13,13 +13,9 @@ define('APPLICATION_PATH', dirname(__FILE__));
 
 use Thrift\Exception\TException;
 try{
-    $client = \RPC\RpcClient::getInstance()->getClient('http://www.open-api.com');
-    $callIndexParams = new \RPCThrift\Params([
-        'GET' => ['hello' => 'YES']
-    ]);
-    $callIndexTwoParams = new \RPCThrift\Params();
-    var_dump($client->call('index','index',$callIndexParams));
-    var_dump($client->call('index','indexTwo',$callIndexTwoParams));
+    $RpcClient = \RPC\RpcClientSocket::getInstance()->getClient('http://www.open-api.com');
+    $result = $RpcClient->setController('index')->setAction('index')->call();
+    var_dump($result);
 }catch (TException $TException){
     var_dump('TException:'.$TException->getMessage().PHP_EOL);
 }
