@@ -7,46 +7,19 @@
  */
 
 error_reporting(E_ALL);
+require_once './vendor/autoload.php';
 
-require_once './Thrift/ClassLoader/ThriftClassLoader.php';
+define('APPLICATION_PATH', dirname(__FILE__));
 
-
-use RPCThrift\RPCServiceClient;
-use Thrift\ClassLoader\ThriftClassLoader;
-
-
-$GEN_DIR = realpath(dirname(__FILE__)) . '/gen-php';
-
-$loader = new ThriftClassLoader();
-$loader->registerNamespace('Thrift', __DIR__);
-$loader->registerNamespace('RPCThrift', $GEN_DIR);
-$loader->registerDefinition('RPCThrift', $GEN_DIR);
-$loader->register();
-
-
-use Thrift\Protocol\TBinaryProtocol;
-use Thrift\Transport\THttpClient;
-use Thrift\Transport\TSocket;
-use Thrift\Transport\TBufferedTransport;
-use Thrift\Transport\TFramedTransport;
 use Thrift\Exception\TException;
-
-
 try{
-    $socket = new TSocket('127.0.0.1', 1101);
-    $transport = new TFramedTransport($socket);
-    $protocol = new TBinaryProtocol($transport);
-
-    $transport->open();
+    $client = \RPC\RpcClient::getInstance()->getClient('http://www.open-api.com');
     $callIndexParams = new \RPCThrift\Params([
         'GET' => ['hello' => 'YES']
     ]);
     $callIndexTwoParams = new \RPCThrift\Params();
-    $client = new RPCServiceClient($protocol);
     var_dump($client->call('index','index',$callIndexParams));
     var_dump($client->call('index','indexTwo',$callIndexTwoParams));
-
-    $transport->close();
 }catch (TException $TException){
     var_dump('TException:'.$TException->getMessage().PHP_EOL);
 }
