@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f26175c63f1bd685be2f69faf2fd436",
+    "content-hash": "565135333de0770e68f041d6e3c104c0",
     "packages": [
         {
             "name": "dwd/dwdrpc",
-            "version": "0.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://zhangzhijian@gitlab.iqianggou.com/dwd/DWDRPC.git",
-                "reference": "b66f376dc4b91ccb2d0a68ec749b679711b5548b"
+                "reference": "a5846060b1fa948f12b27ae2dd134bb331955c99"
             },
             "type": "library",
             "autoload": {
@@ -32,13 +32,15 @@
                 }
             ],
             "description": "多维度公共项目",
-            "time": "2018-07-02T11:09:55+00:00"
+            "time": "2018-07-03T03:16:00+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "dwd/dwdrpc": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

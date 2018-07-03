@@ -13,12 +13,10 @@
         }
     ],
     "require": {
-        "dwd/dwdrpc": "~0.1"
+        "dwd/dwdrpc": "master-dev"
     },
     "autoload": {
         "psr-4": {
-            "RPC\\": "RPC/",
-            "Thrift\\": "Thrift/"
         }
     }
 }
