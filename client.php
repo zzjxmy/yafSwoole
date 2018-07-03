@@ -14,7 +14,10 @@ define('APPLICATION_PATH', dirname(__FILE__));
 use Thrift\Exception\TException;
 try{
     $RpcClient = \RPC\RpcClientSocket::getInstance()->getClient('http://www.open-api.com');
-    $result = $RpcClient->setController('index')->setAction('index')->call();
+    $result = $RpcClient->setController('index')
+        ->setAction('index')
+        ->setGetParams(['name' => 'zhangzhijian'])
+        ->call();
     $result2 = $RpcClient->setController('index')->setAction('indexTwo')->call();
     var_dump($result,$result2);
 }catch (TException $TException){
