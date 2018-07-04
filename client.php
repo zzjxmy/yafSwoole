@@ -13,13 +13,16 @@ define('APPLICATION_PATH', dirname(__FILE__));
 
 use Thrift\Exception\TException;
 try{
-    $RpcClient = \RPC\RpcClientSocket::getInstance()->getClient('http://www.open-api.com');
+
+    $RpcClient = \RPC\RpcClient::getInstance()->getClient('http://www.test.com');
     $result = $RpcClient->setController('index')
         ->setAction('index')
         ->setGetParams(['name' => 'zhangzhijian'])
+        ->setHeaderParams(['REQUEST_METHOD' => 'GET'])
         ->call();
-    $result2 = $RpcClient->setController('index')->setAction('indexTwo')->call();
-    var_dump($result,$result2);
+//    $result2 = $RpcClient->setController('index')->setAction('indexTwo')->call();
+    var_dump($result);
+
 }catch (TException $TException){
     echo json_encode(['code' => 0 , 'msg' => '服务器连接超时']) . PHP_EOL;
 }

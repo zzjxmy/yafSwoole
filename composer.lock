@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "https://zhangzhijian@gitlab.iqianggou.com/dwd/DWDRPC.git",
-                "reference": "a84e261af3e70703c7d7d21d4851867c46ed4dd6"
+                "reference": "7071752b4a248588a8a408e17f29ffdc632df635"
             },
             "type": "library",
             "autoload": {
@@ -32,7 +32,7 @@
                 }
             ],
             "description": "多维度公共项目",
-            "time": "2018-07-03T08:50:36+00:00"
+            "time": "2018-07-04T08:13:24+00:00"
         }
     ],
     "packages-dev": [],

@@ -1,4 +1,7 @@
 <?php
+if (false == defined("APPLICATION_PATH")) {
+    define('APPLICATION_PATH', __DIR__);
+}
 
 class HttpServer
 {
